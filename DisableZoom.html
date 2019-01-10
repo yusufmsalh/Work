@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <style>
+        body {
+            touch-action: none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <h2>Zoom is Disabled</h2>
+    <img src="1.jpg" alt="Trulli" width="500" height="333">
+
+    <script>
+        $(document).ready(function () {
+            // secondry solution not tested https://bit.ly/2D0NYkF
+            var keyCodes = [61, 107, 173, 109, 187, 189];
+
+            $(document).keydown(function (event) {
+                if (event.ctrlKey == true && (keyCodes.indexOf(event.which) != -1)) {
+                    event.preventDefault();
+                }
+            });
+
+            $(window).bind('mousewheel DOMMouseScroll', function (event) {
+                if (event.ctrlKey == true) {
+                    event.preventDefault();
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
